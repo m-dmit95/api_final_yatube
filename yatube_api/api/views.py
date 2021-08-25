@@ -24,11 +24,8 @@ class PostViewSet(viewsets.ModelViewSet):
     permission_classes = (AuthorOrReadOnly,)
 
     def get_permissions(self):
-        # Если в GET-запросе требуется получить информацию об объекте
         if self.action == 'retrieve':
-            # Вернем обновленный перечень используемых пермишенов
             return (ReadOnly(),)
-        # Для остальных ситуаций оставим текущий перечень пермишенов без изменений  # noqa
         return super().get_permissions()
 
     def perform_create(self, serializer):
