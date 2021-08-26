@@ -14,10 +14,7 @@ router_v1.register(
 router_v1.register('follow', views.FollowViewSet, basename='follow')
 
 urlpatterns = [
-    # Djoser создаст набор необходимых эндпоинтов.
-    # базовые, для управления пользователями в Django:
     path('v1/', include('djoser.urls')),
-    # JWT-эндпоинты, для управления JWT-токенами:
     path('v1/', include('djoser.urls.jwt')),
     path('v1/', include(router_v1.urls)),
 ]
